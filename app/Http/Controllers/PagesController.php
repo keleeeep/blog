@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class Pages extends Controller{
+class PagesController extends Controller{
 
     public function getIndex(){
         #process variable & params
