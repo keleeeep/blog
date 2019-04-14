@@ -26,6 +26,13 @@
                             {!! Form::close() !!}
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            {{ Html::linkRoute('posts.index', '<< See All Posts', [], ['class'=>'btn btn-default btn-block mt-3']) }}
+                        </div>
+                    </div>
+                
                 </div>
             </div>
         </div>
