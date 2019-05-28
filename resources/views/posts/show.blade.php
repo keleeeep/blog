@@ -11,6 +11,8 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
+                    <p class="card-text mb-0"><strong>Slug</strong></p>
+                    <p><a href="{{ route('blog.single', $post->slug) }}">{{route('blog.single', $post->slug)}}</a></p>
                     <p class="card-text mb-0"><strong>Created at</strong></p>
                     <p>{{date('M j, Y h:i a',strtotime($post->created_at))}}</p>
                     <p class="cart-text mb-0"><strong>Updated at</strong></p>

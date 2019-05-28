@@ -7,7 +7,9 @@
     <div class="col-md-8">
         {!! Form::model($post, ['route'=>['posts.update', $post->id],'method'=>'PUT']) !!}
         {{Form::label('title','Title:')}}
-        {{Form::text('title',null,['class'=>'form-control form-control-lg','style'=>'margin-bottom: 20px;'])}}
+        {{Form::text('title',null,['class'=>'form-control form-control-lg mb-3'])}}
+        {{Form::label('slug','Slug:')}}
+        {{Form::text('slug',null,['class'=>'form-control mb-3'])}}
         {{Form::label('body','Post Body:')}}
         {{Form::textarea('body',null,['class'=>'form-control'])}}
     </div>
