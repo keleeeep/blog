@@ -16,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
         // Create a variable and store all the blog posts in it form the database
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
+
         // Return a view and pass it in the above variable
         return view('posts.index')->withPosts($posts);
     }
@@ -42,17 +43,18 @@ class PostController extends Controller
         // Validate the data
         $this->validate($request,array(
             'title' => 'required|max:255',
+            'slug'  => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'body'  => 'required'
         ));
+
         // Store in the database
         $post = new Post;
-
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->body = $request->body;
-
         $post->save();
-
         Session::flash('success','The blog post was successfully save!');
+        
         // Redirect to another page
         return redirect()->route('posts.show', $post->id);
     }
@@ -79,6 +81,7 @@ class PostController extends Controller
     {
         // Find the post in database and save as a var
         $post = Post::find($id);
+
         // Return the view and pass in the var we previously created
         return view('posts.edit')->withPost($post);
     }
@@ -93,10 +96,21 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         // Validate the data
-        $this->validate($request,array(
-            'title' => 'required|max:255',
-            'body'  => 'required'
-        ));
+        $post = Post::find($id);
+
+        if ($request->input('slug') == $post->slug) {
+            $this->validate($request,array(
+                'title' => 'required|max:255',
+                'body'  => 'required'
+            ));
+        }else{
+            $this->validate($request,array(
+                'title' => 'required|max:255',
+                'slug'  => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+                'body'  => 'required'
+            ));
+    }
+
         // Save the data to the database
         $post = Post::find($id);
 
@@ -105,11 +119,13 @@ class PostController extends Controller
         // $post->title = $request->input('body');
 
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->body = $request->body;
-
         $post->save();
+
         // Set flash data with success message
         Session::flash('success','This post was successfully saved! ');
+        
         // Redirect with flash data to posts.show
         return redirect()->route('posts.show',$post->id);
 
