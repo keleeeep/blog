@@ -2,6 +2,10 @@
 
 @section('title','| Edit Post')
 
+@section('stylesheet')
+    {!! Html::style('css/select2.min.css') !!}
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-md-8">
@@ -11,7 +15,9 @@
         {{Form::label('slug','Slug:')}}
         {{Form::text('slug',null,['class'=>'form-control mb-3'])}}
         {{Form::label('category_id','Category:')}}
-        {{Form::select('category_id',$categories,null,['class'=>'form-control mb-4'])}}
+        {{Form::select('category_id',$categories,null,['class'=>'form-control mb-3'])}}
+        {{Form::label('tags','Tags:')}}
+        {{Form::select('tags[]',$tag,null,array('class'=>'form-control select2-multi','multiple'=>'multiple'))}}
         {{Form::label('body','Post Body:')}}
         {{Form::textarea('body',null,['class'=>'form-control'])}}
     </div>
@@ -37,4 +43,13 @@
     </div>
     {!! Form::close() !!}
 </div>
+@endsection
+
+@section('scripts')
+    {!! Html::script('js/select2.min.js') !!}
+
+    <script>
+        $('.select2-multi').select2();
+        $('.select2-multi').select2().val({!! json_encode($post->tag()->pluck('tag_id')) !!}).trigger('change');
+    </script>
 @endsection

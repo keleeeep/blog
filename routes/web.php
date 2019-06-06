@@ -25,4 +25,6 @@ Route::get('/', 'PagesController@getIndex');
 Route::resource('posts','PostController');
 Auth::routes(['verify' => true]);
 Route::resource('categories','CategoryController',['except'=>['create']]);
+Route::resource('tags','TagController',['except'=>['create']]);
+
 
