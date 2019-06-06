@@ -37,7 +37,13 @@
             {{Form::label('title', 'Title:') }}
             {{Form::text('title',null,array('class'=>'form-control','required'=>'','maxlength'=>'255','style'=>'margin-bottom: 20px;')) }}
             {{Form::label('slug', 'Slug:')}}
-            {{Form::text('slug',null,array('class'=>'form-control','required'=>'','minlength'=>'5','maxlength'=>'255'))}}
+            {{Form::text('slug',null,array('class'=>'form-control','required'=>'','minlength'=>'5','maxlength'=>'255','style'=>'margin-bottom: 20px;'))}}
+            {{Form::label('category_id','Categgory:')}}
+            <select class="form-control mb-4" name="category_id" id="">
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
             {{Form::label('body', 'Post Body:') }}
             {{Form::textarea('body',null,array('class'=>'form-control','required'=>'')) }}
             {{Form::submit('Create Post',array('class'=>'btn btn-primary btn-lg btn-block', 'style'=>'margin-top: 20px;')) }}

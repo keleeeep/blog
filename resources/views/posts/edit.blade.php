@@ -10,6 +10,8 @@
         {{Form::text('title',null,['class'=>'form-control form-control-lg mb-3'])}}
         {{Form::label('slug','Slug:')}}
         {{Form::text('slug',null,['class'=>'form-control mb-3'])}}
+        {{Form::label('category_id','Category:')}}
+        {{Form::select('category_id',$categories,null,['class'=>'form-control mb-4'])}}
         {{Form::label('body','Post Body:')}}
         {{Form::textarea('body',null,['class'=>'form-control'])}}
     </div>
