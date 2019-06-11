@@ -9,16 +9,27 @@
 @section('content')
 <div class="row">
     <div class="col-md-8">
-        {!! Form::model($post, ['route'=>['posts.update', $post->id],'method'=>'PUT']) !!}
+        {!! Form::model($post, ['route'=>['posts.update', $post->id],'method'=>'PUT','files'=>true]) !!}
+
         {{Form::label('title','Title:')}}
         {{Form::text('title',null,['class'=>'form-control form-control-lg mb-3'])}}
+
         {{Form::label('slug','Slug:')}}
         {{Form::text('slug',null,['class'=>'form-control mb-3'])}}
+
         {{Form::label('category_id','Category:')}}
         {{Form::select('category_id',$categories,null,['class'=>'form-control mb-3'])}}
+
         {{Form::label('tags','Tags:')}}
         {{Form::select('tags[]',$tag,null,array('class'=>'form-control select2-multi','multiple'=>'multiple'))}}
-        {{Form::label('body','Post Body:')}}
+
+
+        {{Form::label('featured_image','Update Featured Image:',['class'=>'mt-4'])}}
+        <br>
+        {{Form::file('featured_image')}}
+        <br>
+
+        {{Form::label('body','Post Body:',['class'=>'mt-4'])}}
         {{Form::textarea('body',null,['class'=>'form-control'])}}
     </div>
 
