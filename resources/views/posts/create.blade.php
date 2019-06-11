@@ -65,6 +65,15 @@
   {!! Html::script('js/parsley.min.js') !!}
   {!! Html::script('js/select2.min.js') !!}
 
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+  <script>
+      tinymce.init({
+            selector: 'textarea',
+            plugins: 'link code',
+          menubar:false
+      });
+  </script>
+
   <script>
       $('.select2-multi').select2();
   </script>

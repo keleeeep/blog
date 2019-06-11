@@ -7,6 +7,7 @@ use App\Tag;
 use Illuminate\Http\Request;
 use App\Post;
 use Session;
+use Purifier;
 
 class PostController extends Controller
 {
@@ -61,7 +62,7 @@ class PostController extends Controller
         $post = new Post;
         $post->title = $request->title;
         $post->slug = $request->slug;
-        $post->body = $request->body;
+        $post->body = Purifier::clean($request->body);
         $post->category_id = $request->category_id;
         $post->save();
         $post->tag()->sync($request->tags,false);
@@ -141,7 +142,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
-        $post->body = $request->body;
+        $post->body = Purifier::clean($request->body);
         $post->save();
 
         $post->tag()->sync($request->tags,true);

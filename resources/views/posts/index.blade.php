@@ -26,7 +26,7 @@
                     <tr>
                         <th class="align-middle"> {{$post->id}} </th>
                         <td class="align-middle"> {{$post->title}} </td>
-                        <td class="align-middle"> {{ substr($post->body,0,50) }} {{strlen($post->body) > 50 ? "..." : ""}} </td>
+                        <td class="align-middle"> {{ substr(strip_tags($post->body),0,50) }} {{strlen(strip_tags($post->body)) > 50 ? "..." : ""}} </td>
                         <td class="align-middle"> {{date('M j, Y',strtotime($post->created_at))}} </td>
                         <td class="align-middle"s>
                             <a href="{{route('posts.show',$post->id)}}" class="btn btn-outline-dark btn-sm">View</a>
