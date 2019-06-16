@@ -5,8 +5,9 @@
 @section('content')
     <div class="row">
         <div class="col-md-8">
+            <img src="{{asset('images/'.$post->image)}}" alt="" width="700" height="350">
             <h1> {{$post->title}} </h1>
-            <p> {{$post->body}} </p>
+            <p> {!! $post->body !!} </p>
             <hr>
             <div class="tags">
                 @foreach($post->tag as $tag)
@@ -14,6 +15,33 @@
                         {{$tag->name}}
                     </span>
                 @endforeach
+            </div>
+            <div id="backend-comments" class="mb-4">
+                <h3>Comments <small>{{$post->comments()->count()}} total</small> </h3>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Comment</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($post->comments as $comment)
+                            <tr>
+                                <td class="align-middle">{{$comment->name}}</td>
+                                <td class="align-middle">{{$comment->email}}</td>
+                                <td class="align-middle">{{$comment->comment}}</td>
+                                <td class="align-middle">
+                                    <a href="{{route('comments.edit',$comment->id)}}" class="btn btn-sm btn-outline-primary comment-action">Edit</a>
+                                    <a href="{{route('comments.delete',$comment->id)}}" class="btn btn-sm btn-outline-danger comment-action">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="col-md-4">

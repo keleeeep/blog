@@ -6,7 +6,10 @@ use App\Category;
 use App\Tag;
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Storage;
 use Session;
+use Purifier;
+use Image;
 
 class PostController extends Controller
 {
@@ -54,17 +57,31 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'slug'  => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'category_id' => 'required|integer',
-            'body'  => 'required'
+            'body'  => 'required',
+            'featured_image' => 'sometimes|image'
         ));
 
         // Store in the database
         $post = new Post;
         $post->title = $request->title;
         $post->slug = $request->slug;
-        $post->body = $request->body;
+        $post->body = Purifier::clean($request->body);
         $post->category_id = $request->category_id;
+
+        //save image
+        if ($request->hasFile('featured_image')){
+            $image = $request->file('featured_image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $filename);
+            Image::make($image)->resize(800,400)->save($location);
+
+            $post->image = $filename;
+        }
+
         $post->save();
+
         $post->tag()->sync($request->tags,false);
+
         Session::flash('success','The blog post was successfully save!');
         
         // Redirect to another page
@@ -114,34 +131,40 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         // Validate the data
-        $post = Post::find($id);
+            $this->validate($request,array(
+                'title' => 'required|max:255',
+                'slug'  => "required|alpha_dash|min:5|max:255|unique:posts,slug,$id",
+                'category_id' => 'required|integer',
+                'body'  => 'required',
+                'featured_image' =>'image'
+            ));
 
-        if ($request->input('slug') == $post->slug) {
-            $this->validate($request,array(
-                'title' => 'required|max:255',
-                'category_id' => 'required|integer',
-                'body'  => 'required'
-            ));
-        }else{
-            $this->validate($request,array(
-                'title' => 'required|max:255',
-                'slug'  => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
-                'category_id' => 'required|integer',
-                'body'  => 'required'
-            ));
-    }
 
         // Save the data to the database
         $post = Post::find($id);
 
-        // bisa juga dengan ini
+        // can use this
         // $post->title = $request->input('title');
         // $post->title = $request->input('body');
 
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
-        $post->body = $request->body;
+        $post->body = Purifier::clean($request->body);
+
+        if ($request->hasFile('featured_image')){
+            //Add the image
+            $image = $request->file('featured_image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $filename);
+            Image::make($image)->resize(800,400)->save($location);
+            $oldFilename = $post->image;
+            //Update the database
+            $post->image = $filename;
+            //Delete the image
+            Storage::delete($oldFilename);
+        }
+
         $post->save();
 
         $post->tag()->sync($request->tags,true);
@@ -164,6 +187,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->tag()->detach();
+        Storage::delete($oldFilename);
         $post->delete();
         Session::flash('success','The post was successfully deleted!');
         return redirect()->route('posts.index');
