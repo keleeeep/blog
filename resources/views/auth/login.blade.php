@@ -46,7 +46,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
@@ -54,6 +53,9 @@
                                 @endif
                             </div>
                         </div>
+                        <hr>
+                        <p class="text-center m-0">Don't have an account? <a href="{{ route('register') }}">Register Here!</a>
+                        </p>
                     </form>
                 </div>
             </div>

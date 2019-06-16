@@ -10,13 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Authentication routes
-//Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
-//Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
-Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
-////Resgistration routes
-//Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
-//Route::post('register', ['as' => 'register.post', 'uses' => 'Auth\RegisterController@register']);
+Route::get('users/logout','Auth\LoginController@userLogout')->name('user.logout');
+Route::get('admin/login','Auth\AdminLoginController@showloginform')->name('admin.login');
+Route::post('admin/login','Auth\AdminLoginController@login')->name('admin.login.submit');
+Route::get('admin/logout','Auth\AdminLoginController@logout')->name('admin.logout');
 Route::get('blog/{slug}',['as'=>'blog.single','uses'=>'BlogController@getSingle'])->where('slug','[\w\d\-\_]+');
 Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
 Route::get('/contact', 'PagesController@getContact');

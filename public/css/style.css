@@ -1,7 +1,3 @@
-.red {
-    color: red;
-}
-
 .ml-auto .dropdown-menu {
     left: auto !important;
     right: 0px;
@@ -26,7 +22,7 @@
 }
 
 .footer {
-    background: #EDEFF1;
+    background: #136EE5;
     height: auto;
     padding-bottom: 30px;
     position: relative;
@@ -37,6 +33,8 @@
 
 .footer p {
     margin: 0;
+    color: #fff;
+
 }
 
 .footer img {
@@ -45,7 +43,7 @@
 
 .footer h3 {
     border-bottom: 1px solid #BAC1C8;
-    color: #54697E;
+    color: #fff;
     font-size: 18px;
     font-weight: 600;
     line-height: 27px;
@@ -54,12 +52,12 @@
 }
 
 .footer ul {
-    font-size: 13px;
+    font-size: 20px;
     list-style-type: none;
     margin-left: 0;
     padding-left: 0;
     margin-top: 15px;
-    color: #7F8C8D;
+    color: #fff;
 }
 
 .footer ul li a {
@@ -68,7 +66,7 @@
 }
 
 .footer a {
-    color: #78828D
+    color: #fff
 }
 
 .supportLi h4 {
@@ -80,7 +78,7 @@
 }
 
 .footer-bottom {
-    background: #E3E3E3;
+    background: #fff;
     border-top: 1px solid #DDDDDD;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -90,45 +88,146 @@
     font-size: 1.5em;
 }
 
-.comment{
+.comment {
     margin-bottom: 45px;
 }
 
-.author-image{
+.author-image {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     float: left;
 }
 
-.author-name{
+.author-name {
     float: left;
-    margin-left:15px;
+    margin-left: 15px;
 }
 
-.author-name>h4{
+.author-name>h4 {
     margin: 5px 0px;
 }
 
-.author-time{
-    font-size:11px;
+.author-time {
+    font-size: 11px;
     font-style: italic;
-    color:#aaaaaa;
+    color: #aaaaaa;
 }
 
-.comment-content{
+.comment-content {
     clear: both;
     margin-left: 65px;
-    font-size:16px;
+    font-size: 16px;
     line-height: 1.3em;
 }
 
-.comment-title{
-    margin-bottom:45px;
-    margin-top:45px;
+.comment-title {
+    margin-bottom: 45px;
+    margin-top: 45px;
 }
 
-.comment-action{
+.comment-action {
     margin-bottom: 10px;
     width: 60px;
+}
+
+.card .box {
+    position: relative;
+    width: 100%;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.card .image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.card .unseen {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+}
+
+.card .box:hover .image {
+    opacity: 0.3;
+}
+
+.card .box:hover .unseen {
+    opacity: 1;
+}
+
+.title-shadow {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.carousel-box-shadow {
+    box-shadow: 10px 10px 5px grey;
+}
+
+.navbar-blue .navbar-brand {
+    color: #fff;
+}
+
+.navbar-blue .navbar-brand:hover,
+.navbar-blue .navbar-brand:focus {
+    color: #fff;
+}
+
+.navbar-blue .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-blue .navbar-nav .nav-link:hover,
+.navbar-blue .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 1);
+}
+
+.navbar-blue .navbar-nav .nav-link.disabled {
+    color: rgba(19, 110, 229, 0.25);
+}
+
+.navbar-blue .navbar-nav .show>.nav-link,
+.navbar-blue .navbar-nav .active>.nav-link,
+.navbar-blue .navbar-nav .nav-link.show,
+.navbar-blue .navbar-nav .nav-link.active {
+    color: #fff;
+}
+
+.navbar-blue .navbar-toggler {
+    color: rgba(19, 110, 229, 0.5);
+    border-color: rgba(19, 110, 229, 0.1);
+}
+
+.navbar-blue .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-blue .navbar-text {
+    color: rgba(19, 110, 229, 0.5);
+}
+
+.navbar-blue .navbar-text a {
+    color: #fff;
+}
+
+.navbar-blue .navbar-text a:hover,
+.navbar-blue .navbar-text a:focus {
+    color: #fff;
+}
+
+.bg-blue {
+    background-color: #136EE5 !important;
+}
+
+a.bg-blue:hover,
+a.bg-blue:focus,
+button.bg-blue:hover,
+button.bg-blue:focus {
+    background-color: #1d2124 !important;
 }

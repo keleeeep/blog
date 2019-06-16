@@ -13,7 +13,8 @@ class CommentsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','verified'],['only'=>['store']]);
+        $this->middleware(['auth:admin'],['except'=>['store']]);
     }
     /**
      * Display a listing of the resource.

@@ -32,7 +32,7 @@
     </div>
 </nav> --}}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+<nav class="navbar navbar-expand-lg navbar-blue bg-blue mb-3">
   <a class="navbar-brand" href="#">Laravel</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -59,15 +59,23 @@
             Hello {{Auth::user()->name}}
             </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
-            <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
-            <a class="dropdown-item" href="{{ route('tags.index') }}">Tags</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+            @if(Auth::guard('admin')->check())
+                <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
+                <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
+                <a class="dropdown-item" href="{{ route('tags.index') }}">Tags</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ route('admin.logout') }}">Logout as Admin</a>
+            @endif
+            @if(Auth::guard('web')->check())
+                <a class="dropdown-item" href="{{ route('user.logout') }}">Logout</a>
+            @endif
         </div>
         </li>
         @else
-            <a href="{{ route('login') }}" class="btn btn-secondary">Login</a>
+            <li>
+                <a href="{{ route('login') }}" class="btn btn-light btn-sm">Login</a>
+                <a href="{{ route('register') }}" class="btn btn-outline-secondary btn-sm text-white ml-3" style="border: 0px">Register</a>
+            </li>
         @endif
     </ul>
   </div>
