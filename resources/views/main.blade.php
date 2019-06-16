@@ -7,6 +7,9 @@
 
         @include('partials._nav')
 
+        {{--@component('components.who')--}}
+        {{--@endcomponent--}}
+
         <!-- main-content -->
         <div class="container">
             @include('partials._messages')

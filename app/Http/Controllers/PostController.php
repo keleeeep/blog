@@ -15,7 +15,7 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth:admin']);
     }
 
     /**
@@ -187,6 +187,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->tag()->detach();
+        $oldFilename = $post->image;
         Storage::delete($oldFilename);
         $post->delete();
         Session::flash('success','The post was successfully deleted!');
