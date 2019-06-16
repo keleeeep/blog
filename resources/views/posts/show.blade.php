@@ -7,12 +7,22 @@
         <div class="col-md-8">
             <h1> {{$post->title}} </h1>
             <p> {{$post->body}} </p>
+            <hr>
+            <div class="tags">
+                @foreach($post->tag as $tag)
+                    <span class="badge badge-secondary">
+                        {{$tag->name}}
+                    </span>
+                @endforeach
+            </div>
         </div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
                     <p class="card-text mb-0"><strong>Slug</strong></p>
                     <p><a href="{{ route('blog.single', $post->slug) }}">{{route('blog.single', $post->slug)}}</a></p>
+                    <p class="card-text mb-0"><strong>Category</strong></p>
+                    <p>{{$post->category->name}}</p>
                     <p class="card-text mb-0"><strong>Created at</strong></p>
                     <p>{{date('M j, Y h:i a',strtotime($post->created_at))}}</p>
                     <p class="cart-text mb-0"><strong>Updated at</strong></p>

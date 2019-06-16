@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Post;
 use Session;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +36,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $categories = Category::All();
+        $tags = Tag::All();
+        return view('posts.create')->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -44,6 +53,7 @@ class PostController extends Controller
         $this->validate($request,array(
             'title' => 'required|max:255',
             'slug'  => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+            'category_id' => 'required|integer',
             'body'  => 'required'
         ));
 
@@ -52,7 +62,9 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->body = $request->body;
+        $post->category_id = $request->category_id;
         $post->save();
+        $post->tag()->sync($request->tags,false);
         Session::flash('success','The blog post was successfully save!');
         
         // Redirect to another page
@@ -81,9 +93,15 @@ class PostController extends Controller
     {
         // Find the post in database and save as a var
         $post = Post::find($id);
+        $categories = Category::all();
+        $tags=Tag::pluck('name','id')->all();
+        $cats = [];
+        foreach ($categories as $category){
+            $cats[$category->id]=$category->name;
+        }
 
         // Return the view and pass in the var we previously created
-        return view('posts.edit')->withPost($post);
+        return view('posts.edit')->withPost($post)->withTag($tags)->withCategories($cats);
     }
 
     /**
@@ -101,12 +119,14 @@ class PostController extends Controller
         if ($request->input('slug') == $post->slug) {
             $this->validate($request,array(
                 'title' => 'required|max:255',
+                'category_id' => 'required|integer',
                 'body'  => 'required'
             ));
         }else{
             $this->validate($request,array(
                 'title' => 'required|max:255',
                 'slug'  => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+                'category_id' => 'required|integer',
                 'body'  => 'required'
             ));
     }
@@ -120,8 +140,11 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
         $post->body = $request->body;
         $post->save();
+
+        $post->tag()->sync($request->tags,true);
 
         // Set flash data with success message
         Session::flash('success','This post was successfully saved! ');
@@ -140,6 +163,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        $post->tag()->detach();
         $post->delete();
         Session::flash('success','The post was successfully deleted!');
         return redirect()->route('posts.index');
