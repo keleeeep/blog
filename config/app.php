@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
 
         /*
@@ -234,7 +235,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
         'Image' => Intervention\Image\Facades\Image::class,
-
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

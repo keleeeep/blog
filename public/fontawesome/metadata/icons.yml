@@ -18622,7 +18622,7 @@ university:
       - bank
       - building
       - college
-      - higher education - students
+      - higher education - users
       - institution
   styles:
     - solid

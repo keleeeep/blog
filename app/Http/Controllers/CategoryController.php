@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Post;
 
 class CategoryController extends Controller
 {
@@ -95,4 +96,6 @@ class CategoryController extends Controller
     {
         //
     }
+
+
 }

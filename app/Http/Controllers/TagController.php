@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Post;
 
 class TagController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware(['auth:admin'],['except'=>'show']);
     }
 
     /**
@@ -105,4 +104,10 @@ class TagController extends Controller
         Session::flash('success','The tag was successfully deleted!');
         return redirect()->route('tags.index');
     }
+
+//    public function userTag($id)
+//    {
+//        $tag=Tag::find($id);
+//        return view ('tags.user')->withTag($tag);
+//    }
 }

@@ -29,46 +29,46 @@
       </div> --}}
 
 <div class="row">
-    <div class="col-md-8 offset-md-2">
-        
-        <h1>Create New Post</h1>
-        <hr>
+    <div class="col-md-10 offset-md-1">
+        <div class="card card-shadow p-3">
+            <h1>Create New Post</h1>
+            <hr>
 
-        {!! Form::open(array('route' => 'posts.store', 'data-parsley-validate'=>'', 'files'=>true)) !!}
+            {!! Form::open(array('route' => 'posts.store', 'data-parsley-validate'=>'', 'files'=>true)) !!}
 
-            {{Form::label('title', 'Title:') }}
+            {{Form::label('title', 'Judul') }}
             {{Form::text('title',null,array('class'=>'form-control','required'=>'','maxlength'=>'255','style'=>'margin-bottom: 20px;')) }}
 
-            {{Form::label('slug', 'Slug:')}}
+            {{Form::label('slug', 'Slug')}}
             {{Form::text('slug',null,array('class'=>'form-control','required'=>'','minlength'=>'5','maxlength'=>'255','style'=>'margin-bottom: 20px;'))}}
 
-            {{Form::label('category_id','Categgory:')}}
+            {{Form::label('category_id','Kategori')}}
             <select class="form-control mb-4" name="category_id" id="">
                 @foreach($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+                    <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
             </select>
 
-            {{Form::label('tags','Tags:')}}
+            {{Form::label('tags','Label')}}
             <select class="form-control select2-multi" name="tags[]" id="" multiple="multiple">
                 @foreach($tags as $tag)
-                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                    <option value="{{$tag->id}}">{{$tag->name}}</option>
                 @endforeach
             </select>
 
-            {{Form::label('featured_image','Upload Featured Image:',['class'=>'mt-4'])}}
+            {{Form::label('featured_image','Unggah Foto',['class'=>'mt-4'])}}
             <br>
             {{Form::file('featured_image')}}
 
             <br>
 
-            {{Form::label('body', 'Post Body:',['class'=>'mt-4']) }}
+            {{Form::label('body', 'Isi Artikel',['class'=>'mt-4']) }}
             {{Form::textarea('body',null,array('class'=>'form-control','required'=>'')) }}
 
-            {{Form::submit('Create Post',array('class'=>'btn btn-primary btn-lg btn-block', 'style'=>'margin-top: 20px;')) }}
+            {{Form::submit('Buat Artikel',array('class'=>'btn btn-primary btn-lg btn-block', 'style'=>'margin-top: 20px;')) }}
 
-        {!! Form::close() !!}
-    
+            {!! Form::close() !!}
+        </div>
     </div>
 </div>
 

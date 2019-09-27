@@ -5,76 +5,92 @@
 @section('content')
     <div class="row">
         <div class="col-md-8">
-            <img src="{{asset('images/'.$post->image)}}" alt="" width="700" height="350">
-            <h1> {{$post->title}} </h1>
-            <p> {!! $post->body !!} </p>
-            <hr>
-            <div class="tags">
-                @foreach($post->tag as $tag)
-                    <span class="badge badge-secondary">
-                        {{$tag->name}}
-                    </span>
-                @endforeach
-            </div>
-            <div id="backend-comments" class="mb-4">
-                <h3>Comments <small>{{$post->comments()->count()}} total</small> </h3>
-
-                <table class="table">
-                    <thead>
+            <div class="card card-shadow p-3">
+                <img src="{{asset('images/'.$post->image)}}" alt="image" class="mb-5 img-fluid">
+                <h1> {{$post->title}} </h1>
+                <p> {!! $post->body !!} </p>
+                <hr>
+                <div id="backend-comments" class="mb-4">
+                    <h3 style="margin-bottom:16px !important">Comments <small>{{$post->comments()->count()}} total</small> </h3>
+                    <table class="table" id="datatable">
+                        <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Nama</th>
                             <th>Email</th>
-                            <th>Comment</th>
-                            <th>Action</th>
+                            <th>Komentar</th>
+                            <th>Aksi</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         @foreach($post->comments as $comment)
                             <tr>
                                 <td class="align-middle">{{$comment->name}}</td>
                                 <td class="align-middle">{{$comment->email}}</td>
                                 <td class="align-middle">{{$comment->comment}}</td>
                                 <td class="align-middle">
-                                    <a href="{{route('comments.edit',$comment->id)}}" class="btn btn-sm btn-outline-primary comment-action">Edit</a>
-                                    <a href="{{route('comments.delete',$comment->id)}}" class="btn btn-sm btn-outline-danger comment-action">Delete</a>
+                                    <a href="{{route('comments.delete',$comment->id)}}" class="btn btn-sm btn-outline-danger comment-action">Hapus</a>
                                 </td>
                             </tr>
                         @endforeach
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card card-shadow">
                 <div class="card-body">
                     <p class="card-text mb-0"><strong>Slug</strong></p>
                     <p><a href="{{ route('blog.single', $post->slug) }}">{{route('blog.single', $post->slug)}}</a></p>
-                    <p class="card-text mb-0"><strong>Category</strong></p>
+                    <p class="card-text mb-0"><strong>Kategori</strong></p>
                     <p>{{$post->category->name}}</p>
-                    <p class="card-text mb-0"><strong>Created at</strong></p>
+                    <p class="card-text mb-0"><strong>Dibuat Pada</strong></p>
                     <p>{{date('M j, Y h:i a',strtotime($post->created_at))}}</p>
-                    <p class="cart-text mb-0"><strong>Updated at</strong></p>
+                    <p class="cart-text mb-0"><strong>Diperbarui Pada</strong></p>
                     <p>{{date('M j, Y h:i a',strtotime($post->updated_at))}}</p>
                     <hr>
                     <div class="row">
                         <div class="col-6">
-                            {!! Html::linkRoute('posts.edit','Edit',array($post->id), array('class'=>'btn btn-primary btn-block')) !!}
+                            {!! Html::linkRoute('posts.edit','Sunting',array($post->id), array('class'=>'btn btn-primary btn-block')) !!}
                         </div>
                         <div class="col-6">
                             {!! Form::open(['route'=>['posts.destroy',$post->id],'method'=>'DELETE']) !!}
-                            {!! Form::submit('Delete',['class'=>'btn btn-danger btn-block'])  !!}
+                            {!! Form::submit('Hapus',['class'=>'btn btn-danger btn-block'])  !!}
                             {!! Form::close() !!}
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
-                            {{ Html::linkRoute('posts.index', '<< See All Posts', [], ['class'=>'btn btn-default btn-block mt-3']) }}
+                            {{ Html::linkRoute('posts.index', '<< Lihat Semua Artikel', [], ['class'=>'btn btn-default btn-block mt-3']) }}
                         </div>
                     </div>
-                
+
                 </div>
             </div>
         </div>
     </div>
+        </div>
+
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#datatable').DataTable({
+                // 'paging': true,
+                // 'lengthChange': true,
+                // 'ordering': true,
+                // 'info': true,
+                // 'autoWidth': true,
+                // 'searching': true,
+                // 'processing': true,
+                // "columnDefs": [{
+                //     "width": "20%",
+                //     "targets": 0
+                }]
+            });
+        });
+    </script>
 @endsection

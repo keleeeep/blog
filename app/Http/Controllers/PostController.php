@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Session;
 use Purifier;
 use Image;
+use Auth;
 
 class PostController extends Controller
 {
@@ -26,10 +27,14 @@ class PostController extends Controller
     public function index()
     {
         // Create a variable and store all the blog posts in it form the database
-        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        $admin = Auth::user();
+        $posts = Post::All();
+//        $admin = Auth::guard('admin');
+//        dd($admin);
+//        dd($admin->is_edit);
 
         // Return a view and pass it in the above variable
-        return view('posts.index')->withPosts($posts);
+        return view('posts.index')->withPosts($posts)->withAdmin($admin);
     }
 
     /**
@@ -73,7 +78,7 @@ class PostController extends Controller
             $image = $request->file('featured_image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/' . $filename);
-            Image::make($image)->resize(800,400)->save($location);
+            Image::make($image)->resize(800,800)->save($location);
 
             $post->image = $filename;
         }
@@ -157,7 +162,7 @@ class PostController extends Controller
             $image = $request->file('featured_image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/' . $filename);
-            Image::make($image)->resize(800,400)->save($location);
+            Image::make($image)->resize(800,800)->save($location);
             $oldFilename = $post->image;
             //Update the database
             $post->image = $filename;

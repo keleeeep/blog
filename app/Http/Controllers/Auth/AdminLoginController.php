@@ -30,7 +30,7 @@ class AdminLoginController extends Controller
         if (Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember))
         {
             //if successfull, then redirect to their indent location
-            return redirect()->intended(route('posts.index'));
+            return redirect()->route('posts.index');
         }
         //if unsuccessfull, then redirect back to the login with the form data
         return redirect()->back()->withInput($request->only('email','remember'));

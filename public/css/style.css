@@ -22,7 +22,7 @@
 }
 
 .footer {
-    background: #136EE5;
+    background: #0D539E;
     height: auto;
     padding-bottom: 30px;
     position: relative;
@@ -131,35 +131,35 @@
     width: 60px;
 }
 
-.card .box {
-    position: relative;
-    width: 100%;
-    box-shadow: 10px 10px 5px grey;
-}
+/*.card .box {*/
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+/*}*/
 
-.card .image {
-    opacity: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-}
+/*.card .image {*/
+    /*opacity: 1;*/
+    /*display: block;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    /*transition: .5s ease;*/
+    /*backface-visibility: hidden;*/
+/*}*/
 
-.card .unseen {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    text-align: center;
-}
+/*.card .unseen {*/
+    /*transition: .5s ease;*/
+    /*opacity: 0;*/
+    /*position: absolute;*/
+    /*text-align: center;*/
+/*}*/
 
-.card .box:hover .image {
-    opacity: 0.3;
-}
+/*.card .box:hover .image {*/
+    /*opacity: 0.3;*/
+/*}*/
 
-.card .box:hover .unseen {
-    opacity: 1;
-}
+/*.card .box:hover .unseen {*/
+    /*opacity: 1;*/
+/*}*/
 
 .title-shadow {
     color: white;
@@ -167,7 +167,7 @@
 }
 
 .carousel-box-shadow {
-    box-shadow: 10px 10px 5px grey;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .navbar-blue .navbar-brand {
@@ -180,12 +180,13 @@
 }
 
 .navbar-blue .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgb(214, 214, 214);
 }
 
 .navbar-blue .navbar-nav .nav-link:hover,
 .navbar-blue .navbar-nav .nav-link:focus {
     color: rgba(255, 255, 255, 1);
+    background-color: #0D539E;
 }
 
 .navbar-blue .navbar-nav .nav-link.disabled {
@@ -197,6 +198,7 @@
 .navbar-blue .navbar-nav .nav-link.show,
 .navbar-blue .navbar-nav .nav-link.active {
     color: #fff;
+    background-color: #0D539E;
 }
 
 .navbar-blue .navbar-toggler {
@@ -222,7 +224,7 @@
 }
 
 .bg-blue {
-    background-color: #136EE5 !important;
+    background-color: #0D539E !important;
 }
 
 a.bg-blue:hover,
@@ -231,3 +233,88 @@ button.bg-blue:hover,
 button.bg-blue:focus {
     background-color: #1d2124 !important;
 }
+
+.card-shadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.single-box{
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.formated-text,p,h1,h2,h3,h4,h5,h6,a{
+    color: #484c4f;
+    font-family: 'Museo Sans Rounded',-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',Arial,sansserif !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+}
+
+/*.background{*/
+    /*background-color: #F8FCFF !important;*/
+/*}*/
+
+/*.background-anchor:hover{*/
+    /*background-color: #cae1ff !important;*/
+
+/*}*/
+
+.header-cover{
+    border-radius: 10px;
+    margin: 20px 0px !important;
+    height: 300px;
+    line-height: 300px;
+    width: auto;
+    /*background-color: #136EE5;*/
+    background-image: linear-gradient(to right,#0D539E, #34a4ff);
+    position: relative !important;
+}
+
+.header-cover h1{
+    letter-spacing: 5px;
+    color: #ffffff;
+    font-weight: 700 !important;
+    /*font-family: "Arial Black", arial-black !important;*/
+    /*font-family: "DejaVu Sans Mono" !important;*/
+    font-family: 'Lato', Arial, Helvetica, sans-serif !important;
+    font-size: 2.5rem;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 0  0 50px !important;
+}
+
+
+.header-cover img{
+    position: absolute !important;
+    height: 150px;
+    width: auto;
+    top: 25%;
+    right: 70px;
+    vertical-align: middle !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0D539E;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0d3367;
+    border-color: #0062cc;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.centered-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
