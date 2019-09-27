@@ -328,7 +328,7 @@ a {
 }
 
 @media only screen and (max-width: 768px) {
-    .hidden-log {
+    .hidden-logo {
         display: none;
     }
 }
