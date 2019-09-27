@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title',"| Blog")
+@section('title',"| Daftar Artikel")
 
 @section('content')
 

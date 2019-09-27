@@ -1,5 +1,5 @@
 @extends('main')
-@section('title','| Contact')
+@section('title','| Kontak')
 @section('content')
        <div class="single-box">
         <div class="row justify-content-center">

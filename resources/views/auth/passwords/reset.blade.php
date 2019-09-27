@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title',"| Reset Password")
+@section('title',"| Atur Ulang Kata Sandi")
 
 @section('content')
 <div class="container">

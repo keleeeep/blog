@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title',"| Categories")
+@section('title',"| Daftar Kategori")
 
 @section('content')
     <div class="row">

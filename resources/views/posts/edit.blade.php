@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title','| Edit Post')
+@section('title','| Sunting Artikel')
 
 @section('stylesheet')
     {!! Html::style('css/select2.min.css') !!}

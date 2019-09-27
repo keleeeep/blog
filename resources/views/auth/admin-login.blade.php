@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title','| Login')
+@section('title','| Admin Login')
 
 @section('content')
 <div class="container">

@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title','| Show Post')
+@section('title','| Daftar Mahasiswa')
 
 @section('content')
     <div class="card card-shadow p-3">

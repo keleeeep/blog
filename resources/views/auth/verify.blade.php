@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title',"| Verify")
+@section('title',"| Verifikasi")
 
 @section('content')
 <div class="container">

@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title','| Delete Comment?')
+@section('title','| Hapus Komentar?')
 
 @section('content')
 

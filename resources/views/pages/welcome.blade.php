@@ -1,5 +1,5 @@
 @extends('main')
-@section('title','| Welcome')
+@section('title')
 @section('content')
     {{--<div id="carouselExampleIndicators" class="carousel carousel-box-shadow slide mb-5" data-ride="carousel">--}}
         {{--<ol class="carousel-indicators">--}}

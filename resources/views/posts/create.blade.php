@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title','| Create New Post')
+@section('title','| Buat Artikel Baru')
 
 @section('stylesheet')
     {!! Html::style('css/parsley.css') !!}

@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title',"| $category->name")
+@section('title',"| Kategori $category->name")
 
 @section('content')
     <div class="row mt-5 mb-5">
