@@ -34,15 +34,7 @@
     {{--</div>--}}
     <div class="header-cover">
         <h1>Himpunan Mahasiswa <br>Teknik Informatika <br> Universitas Gunadarma</h1>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-        <img src="/logo/logohimti.jpg" style="height: 180px">
-=======
         <img src="/logo/logohimti.jpg" style="height: 180px" class="hidden-logo">
->>>>>>> Stashed changes
-=======
-        <img src="/logo/logohimti.jpg" style="height: 180px" class="hidden-sm-down">
->>>>>>> master
     </div>
 
     <div class="row">
