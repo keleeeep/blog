@@ -81,18 +81,7 @@ $database = substr($url["path"], 1),
         //     'sslmode' => 'prefer',
         // ],
 
-        // 'pgsql' => [
-        // 'driver'   => 'pgsql',
-        // 'host'     => $host,
-        // 'database' => $database,
-        // 'username' => $username,
-        // 'password' => $password,
-        // 'charset'  => 'utf8',
-        // 'prefix'   => '',
-        // 'schema'   => 'public',
-        // ],
-
-        'pgsql' => array(
+        'pgsql' => [
         'driver'   => 'pgsql',
         'host'     => $host,
         'database' => $database,
@@ -101,7 +90,7 @@ $database = substr($url["path"], 1),
         'charset'  => 'utf8',
         'prefix'   => '',
         'schema'   => 'public',
-    ),
+        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
