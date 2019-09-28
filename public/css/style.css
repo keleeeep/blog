@@ -331,10 +331,8 @@ a {
     .hidden-logo {
         display: none;
     }
-    .header-cover{
-        margin: 0px !important;
-    }
-    .header-cover h1.small-screen{
+    .header-cover h1{
         text-align: center !important;
+        margin: 0px !important;
     }
 }
