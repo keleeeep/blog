@@ -15,13 +15,13 @@
                     <div class="col-lg-4  col-md-4 col-sm-4 col-xs-6">
                         <h3 class="text-right"> Ikuti Kami </h3>
                         <ul class="text-right">
-                            <a href="#">  Instagram &nbsp<i class="fab fa-instagram mr-3"></i> </a>
+                            <a href="https://www.instagram.com/himtiug/">  Instagram &nbsp<i class="fab fa-instagram mr-3"></i> </a>
                             <br>
-                            <a href="#">  Line  &nbsp<i class="fab fa-line mr-3"></i> </a>
+                            <a href="http://line.me/ti/p/~@gye8387a">  Line  &nbsp<i class="fab fa-line mr-3"></i> </a>
                             <br>
-                            <a href="#"> Facebook  &nbsp<i class="fab fa-facebook-square mr-3"></i> </a>
+                            <a href="https://www.facebook.com/himtigunadarma/"> Facebook  &nbsp<i class="fab fa-facebook-square mr-3"></i> </a>
                             <br>
-                            <a href="#"> Twitter &nbsp<i class="fab fa-twitter-square mr-3"></i>  </a>
+                            <a href="https://twitter.com/himtigunadarma"> Twitter &nbsp<i class="fab fa-twitter-square mr-3"></i>  </a>
                         </ul>
                     </div>
                 </div>
