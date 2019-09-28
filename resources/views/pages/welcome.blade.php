@@ -68,7 +68,7 @@
                 <h2 style="font-weight:500 !important;">Kategori</h2>
                 <ul class="list-group list-group-flush">
                     @foreach($categories as $category)
-                        <a href="{{route('categories.show',$category->id)}}" style="padding-left:0;padding-right:0;" class="background background-anchor list-group-item list-group-item-action">{{$category->name}}</a>
+                        <a href="{{route('categories.show',$category->id)}}" style="padding-left:10px;padding-right:0;" class="background background-anchor list-group-item list-group-item-action">{{$category->name}}</a>
                     @endforeach
                 </ul>
             </div>
