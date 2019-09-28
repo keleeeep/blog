@@ -46,7 +46,6 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'npm' => ['required','string','max:8','alpha_num','regex:/[5]\w[4]\w{5}/i',new Uppercase],
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'max:255', 'unique:users','regex:/(\W|^)[\w.+\-]*@student\.gunadarma\.ac\.id(\W|$)/'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
