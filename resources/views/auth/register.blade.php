@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-<div class="card card-shadow" style="height: 403px;">
+<div class="card card-shadow" style="height: 350px;">
     <div class="card-header text-center">Aturan Register</div>
     <div class="card-body">
         <ul>
@@ -19,7 +19,7 @@
 </div>
         </div>
         <div class="col-md-6">
-            <div class="card card-shadow" style="height: 403px;">
+            <div class="card card-shadow" style="height: 350px;">
                 <div class="card-header text-center">{{ __('Register') }}</div>
 
                 <div class="card-body">
