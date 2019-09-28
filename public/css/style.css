@@ -331,4 +331,8 @@ a {
     .hidden-logo {
         display: none;
     }
+    .header h1.small-screen{
+        margin: 0px !important;
+        text-align: center !important;
+    }
 }
