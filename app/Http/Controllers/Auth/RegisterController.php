@@ -79,6 +79,7 @@ class RegisterController extends Controller
         $enc = json_decode(json_encode($matches));
         preg_match($re1, $enc[0][9], $result);
 
+        $name = ucfirst($enc[0][5]);
 
         $user = "";
         if(array_key_exists(0,$result)) {
@@ -88,7 +89,7 @@ class RegisterController extends Controller
         if ($email == $user) {
             return User::create([
                 'npm' => $data['npm'],
-                'name' => $data['name'],
+                'name' => $name,
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
             ]);
