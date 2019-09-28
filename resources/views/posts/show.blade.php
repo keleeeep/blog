@@ -11,7 +11,7 @@
                 <p> {!! $post->body !!} </p>
                 <hr>
                 <div id="backend-comments" class="mb-4">
-                    <h3 style="margin-bottom:16px !important">Comments <small>{{$post->comments()->count()}} total</small> </h3>
+                    <h3 style="margin-bottom:16px !important">Komentar <small>{{$post->comments()->count()}} total</small> </h3>
                     <table class="table" id="datatable">
                         <thead>
                         <tr>

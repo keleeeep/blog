@@ -31,7 +31,7 @@
 <div class="row">
     <div class="col-md-10 offset-md-1">
         <div class="card card-shadow p-3">
-            <h1>Create New Post</h1>
+            <h1>Buat Artikel Baru</h1>
             <hr>
 
             {!! Form::open(array('route' => 'posts.store', 'data-parsley-validate'=>'', 'files'=>true)) !!}
