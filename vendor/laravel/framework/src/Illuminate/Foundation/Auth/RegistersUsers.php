@@ -2,7 +2,6 @@
 
 namespace Illuminate\Foundation\Auth;
 
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
@@ -29,20 +28,16 @@ trait RegistersUsers
      */
     public function register(Request $request)
     {
-
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
 
-        if ($user != null) {
-            $this->guard()->login($user);
+        $this->guard()->login($user);
 
-            return $this->registered($request, $user)
-                ?: redirect($this->redirectPath());
-        } else {
-            return Redirect::back()->WithErrors("Email tidak cocok dengan NPM");
-        }
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
     }
+
     /**
      * Get the guard to be used during registration.
      *
