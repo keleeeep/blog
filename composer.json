@@ -19,7 +19,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mysql_xdevapi": "*",
-        "ext-gd":" *"
+        "ext-gd":"*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
