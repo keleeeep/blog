@@ -11,7 +11,6 @@
     <div class="card-body">
         <ul>
             <li class="pb-3">Register hanya bisa dilakukan oleh mahasiswa Jurusan Teknik Informatika.</li>
-            <li class="pb-3">Isi nama dengan nama lengkap.</li>
             <li class="pb-3">Email harus diisi dengan email yang telah terdaftar pada Student Site Universitas Gunadarma.</li>
             <li class="pb-3">Setelah melakukan register, mahasiswa wajib melakukan verifikasi melalui email pada Student Site Universitas Gunadarma.</li>
             <li class="pb-3">Password minimal 8 karakter.</li>
