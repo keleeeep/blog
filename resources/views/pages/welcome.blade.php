@@ -33,7 +33,7 @@
         {{--</a>--}}
     {{--</div>--}}
     <div class="header-cover">
-        <h1>Himpunan Mahasiswa <br>Teknik Informatika <br> Universitas Gunadarma</h1>
+        <h1 class="small-screen">Himpunan Mahasiswa <br>Teknik Informatika <br> Universitas Gunadarma</h1>
         <img src="/logo/logohimti.jpg" style="height: 180px" class="hidden-logo">
     </div>
 
