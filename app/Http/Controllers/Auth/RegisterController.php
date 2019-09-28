@@ -79,7 +79,7 @@ class RegisterController extends Controller
         $enc = json_decode(json_encode($matches));
         preg_match($re1, $enc[0][9], $result);
 
-        $name = ucfirst($enc[0][5]);
+        $name = ucwords(strtolower(trim($enc[0][5],":")));
 
         $user = "";
         if(array_key_exists(0,$result)) {
