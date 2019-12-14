@@ -24,7 +24,7 @@
           @if (Auth::check())
               <li class="nav-item dropdown float-right">
                   <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 0px">
-                      Hello {{Auth::user()->name}}
+                      Hello, {{Auth::user()->name}} &nbsp<i class="fas fa-chevron-down"></i>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       @if(Auth::guard('admin')->check())
