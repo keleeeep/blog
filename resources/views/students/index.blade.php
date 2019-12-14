@@ -27,10 +27,7 @@
             </div>
         </div>
     </div>
-
-            @endsection
-
-
+@endsection
 
 @section('scripts')
     <script>
@@ -43,11 +40,7 @@
                 'autoWidth': true,
                 'searching': true,
                 'processing': true,
-                // "columnDefs": [{
-                //     "width": "20%",
-                //     "targets": 0
-                // }]
             });
         });
     </script>
-    @endsection
+@endsection

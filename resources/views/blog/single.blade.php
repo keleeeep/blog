@@ -56,27 +56,14 @@
         <div class="row mb-5">
             <div id="comment-form" class="col-md-8 offset-md-2">
                 {{Form::open(['route'=>['comments.store',$post->id],'method'=>'POST'])}}
-
                 <div class="row">
-                    {{--<div class="col-md-6">--}}
-                        {{--{{Form::label('name','Name:')}}--}}
-                        {{--{{Form::text('name',null,['class'=>'form-control'])}}--}}
-                    {{--</div>--}}
-
-                    {{--<div class="col-md-6">--}}
-                        {{--{{Form::label('email','Email:')}}--}}
-                        {{--{{Form::text('email',null,['class'=>'form-control'])}}--}}
-                    {{--</div>--}}
-
                     <div class="col-md-12 mb-3 mt-3">
                         {{Form::label('comment','Komentar')}}
                         {{Form::textarea('comment',null,['class'=>'form-control','rows'=>5])}}
 
                         {{Form::submit('Tambahkan Komentar',['class'=>'btn btn-primary btn-block mt-3 mb-5'])}}
                     </div>
-
                 </div>
-
                 {{Form::close()}}
             </div>
         </div>

@@ -1,4 +1,3 @@
-    <!--footer -->
     <footer>
         <div class="footer" id="footer">
             <div class="container">
@@ -25,16 +24,13 @@
                         </ul>
                     </div>
                 </div>
-                <!--/.row-->
             </div>
-            <!--/.container-->
         </div>
-        <!--/.footer-->
 
         <div class="footer-bottom">
             <div class="container">
                 <p class="mb-0"> Copyright ©HIMTI 2019</p>
             </div>
         </div>
-        <!--/.footer-bottom--> 
+
     </footer>

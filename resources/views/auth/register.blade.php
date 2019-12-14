@@ -27,8 +27,6 @@
                         @csrf
 
                         <div class="form-group row">
-                            {{--<label for="npm" class="col-md-4 col-form-label text-md-right">{{ __('NPM') }}</label>--}}
-
                             <div class="col-md-10 offset-md-1">
                                 <input id="npm" type="text" placeholder="NPM" class="form-control{{ $errors->has('npm') ? ' is-invalid' : '' }}" name="npm" value="{{ old('npm') }}" required autofocus>
 
@@ -40,43 +38,15 @@
                             </div>
                         </div>
 
-                        {{--<div class="form-group row">--}}
-                            {{--<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>--}}
-
-                            {{--<div class="col-md-10 offset-md-1">--}}
-                                {{--<input id="name" type="text" placeholder="Nama" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>--}}
-
-                                {{--@if ($errors->has('name'))--}}
-                                    {{--<span class="invalid-feedback" role="alert">--}}
-                                        {{--<strong>{{ $errors->first('name') }}</strong>--}}
-                                    {{--</span>--}}
-                                {{--@endif--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-
                         <div class="form-group row">
-                            {{--<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>--}}
-
                             <div class="col-md-10 offset-md-1">
                                 <input id="email" type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}" required>
-                                {{--<small id="passwordHelpBlock" class="form-text text-muted">Must be use gunadarma email--}}
-                                    {{--<br>(e.g. example.gunadarma.ac.id)</small>--}}
-
-                                {{--@if ($errors->has('email'))--}}
-                                    {{--<span class="invalid-feedback" role="alert">--}}
-                                        {{--<strong>{{ $errors->first('email') }}</strong>--}}
-                                    {{--</span>--}}
-                                {{--@endif--}}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            {{--<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
-
                             <div class="col-md-10 offset-md-1">
                                 <input id="password" type="password" placeholder="Password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-                                {{--<small id="passwordHelpBlock" class="form-text text-muted">Your password must be at least 6 characters</small>--}}
-
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -86,8 +56,6 @@
                         </div>
 
                         <div class="form-group row">
-                            {{--<label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>--}}
-
                             <div class="col-md-10 offset-md-1">
                                 <input id="password-confirm" type="password" placeholder="Confirm Password" class="form-control" name="password_confirmation" required>
                             </div>

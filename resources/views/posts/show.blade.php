@@ -79,17 +79,6 @@
     <script>
         $(document).ready(function () {
             $('#datatable').DataTable({
-                // 'paging': true,
-                // 'lengthChange': true,
-                // 'ordering': true,
-                // 'info': true,
-                // 'autoWidth': true,
-                // 'searching': true,
-                // 'processing': true,
-                // "columnDefs": [{
-                //     "width": "20%",
-                //     "targets": 0
-                }]
             });
         });
     </script>
